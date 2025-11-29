@@ -28,12 +28,9 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Ionicons name="arrow-back" size={22} color="white" />
+        <View style={{ width: 22 }} />
         <Text style={styles.month}>November 2025</Text>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Ionicons name="arrow-forward" size={22} color="white" style={{ marginRight: 10 }} />
-          <Ionicons name="search" size={20} color="white" />
-        </View>
+        <View style={{ width: 22 }} />
       </View>
 
       {/* Mood box */}
