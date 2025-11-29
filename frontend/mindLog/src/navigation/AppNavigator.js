@@ -4,6 +4,7 @@ import HomeScreen from "../screens/HomeScreen";
 import JournalEntryScreen from "../screens/JournalEntryScreen";
 import MoodDetailScreen from "../screens/MoodDetailScreen";
 import StatsScreen from "../screens/StatsScreen";
+import CalendarScreen from "../screens/CalendarScreen";
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export default function AppNavigator() {
             <Stack.Screen name="JournalEntry" component={JournalEntryScreen} />
             <Stack.Screen name="MoodDetail" component={MoodDetailScreen} />
             <Stack.Screen name="StatsScreen" component={StatsScreen} />
+            <Stack.Screen name="Calendar" component={CalendarScreen} />
 
         </Stack.Navigator>
     );

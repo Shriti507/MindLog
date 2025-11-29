@@ -1,20 +1,20 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
-const STORAGE_KEY='@mindlog_entries'
+const STORAGE_KEY = '@mindlog_entries'
 
-export const getEntries= async () => {
-    try {
-        const data=await AsyncStorage.getItem(STORAGE_KEY)
-        return data ? JSON.parse(data) : []
-    } catch (err){
-        console.log('error fetching entries',err)
-        return []
-    }
+export const getEntries = async () => {
+  try {
+    const data = await AsyncStorage.getItem(STORAGE_KEY)
+    return data ? JSON.parse(data) : []
+  } catch (err) {
+    console.log('error fetching entries', err)
+    return []
+  }
 }
 
 
-const saveAllEntries=async (entries) => {
+export const saveEntries = async (entries) => {
   try {
-    const data=JSON.stringify(entries);
+    const data = JSON.stringify(entries);
     await AsyncStorage.setItem(STORAGE_KEY, data)
   } catch (err) {
     console.error("Error saving entries:", err)
@@ -22,19 +22,19 @@ const saveAllEntries=async (entries) => {
 }
 
 
-export const addEntry=async (newEntry) => {
+export const addEntry = async (newEntry) => {
   try {
-    const currentEntries=await getEntries();
-    
+    const currentEntries = await getEntries();
+
     const entryWithMeta = {
       id: Date.now().toString(),
       timestamp: new Date().toISOString(),
-      ...newEntry 
+      ...newEntry
     };
-    
-    const updatedEntries=[...currentEntries, entryWithMeta]
-    
-    await saveAllEntries(updatedEntries)
+
+    const updatedEntries = [...currentEntries, entryWithMeta]
+
+    await saveEntries(updatedEntries)
     return updatedEntries
   } catch (err) {
     console.error("Failed to add entry:", err)
