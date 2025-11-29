@@ -88,7 +88,15 @@ export default function HomeScreen({ navigation }) {
       {/* Bottom navigation bnana start kra yaha se with plus sign */}
       <View style={styles.bottomBar}>
         <TouchableOpacity style={styles.tab}><Ionicons name="newspaper-outline" size={22} color="#003E3E"/><Text style={styles.tabLabel}>Entries</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.tab}><Ionicons name="stats-chart" size={22} color="#003E3E"/><Text style={styles.tabLabel}>Stats</Text></TouchableOpacity>
+        {/* <TouchableOpacity style={styles.tab}><Ionicons name="stats-chart" size={22} color="#003E3E"/><Text style={styles.tabLabel}>Stats</Text></TouchableOpacity> */}
+
+        <TouchableOpacity style={styles.tab} onPress={()=>navigation.navigate("StatsScreen")}>
+          <View>
+          <Ionicons name="stats-chart" size={22} color="#003E3E"/>
+          <Text style={styles.tabLabel}>Stats</Text>
+          </View>
+        </TouchableOpacity>
+
 
         <TouchableOpacity style={styles.plusBtn} onPress={() => navigation.navigate("JournalEntry")}>
           <View style={styles.plusInner}><Ionicons name="add" size={36} color="black"/></View>

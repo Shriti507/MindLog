@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { JournalContext } from "../context/JournalContext";
 import uuid from "react-native-uuid";
 
+
 const sleepOptions = [
   { label: "good sleep", icon: "bed" },
   { label: "medium sleep", icon: "bed-outline" },
@@ -25,14 +26,18 @@ export default function MoodDetailScreen({ route, navigation }) {
   const [selectedSocial, setSelectedSocial] = useState(null);
 
   const onSave = () => {
+    const tagsArray = [];
+    if (selectedSleep) tagsArray.push(selectedSleep);
+    if (selectedSocial) tagsArray.push(selectedSocial);
+
     const entry = {
       id: uuid.v4(),
       date: new Date().toISOString(),
       mood: mood.name,
-      sleep: selectedSleep,
-      social: selectedSocial,
+      tags: tagsArray, 
       text: "", 
     };
+
     addEntry(entry);
     navigation.goBack();
   };
