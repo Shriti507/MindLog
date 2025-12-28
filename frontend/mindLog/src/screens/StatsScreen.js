@@ -303,4 +303,3 @@ const styles = StyleSheet.create({
     color: '#00E676',
   },
 });
-
